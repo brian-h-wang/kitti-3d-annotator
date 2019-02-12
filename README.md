@@ -1,4 +1,4 @@
-#KITTI 3D Ground Truth Annotator
+# KITTI 3D Ground Truth Annotator
 
 # How to use
 
