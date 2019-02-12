@@ -1,5 +1,9 @@
 # KITTI 3D Ground Truth Annotator
 
+This is a tool for creating 3D instance segmentation annotations for the KITTI object detection dataset. The code loads in the KITTI bounding box object annotations and gives points initial labels based on whether they fall within a ground truth bounding box. The user then cleans up the annotations using a point cloud viewer GUI.
+
+The [Point Processing Toolkit](https://github.com/heremaps/pptk) is used for visualization and annotation.
+
 # How to use
 
 Install requirements with pip
