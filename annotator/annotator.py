@@ -3,12 +3,7 @@ import numpy as np
 from pathlib import Path
 import annotator.kitti_utils as kitti_utils
 
-# Default KITTI file paths
-OBJ_PATH = Path("kitti") / "data_object" / "training"
-VELO_PATH = OBJ_PATH / "velodyne"
-LABELS_PATH = OBJ_PATH / "label_2"
-CALIB_PATH = OBJ_PATH / "calib"
-SAVE_PATH = OBJ_PATH / "gt_segmentation"
+from config import VELO_PATH, LABELS_PATH, CALIB_PATH, SAVE_PATH
 
 
 class Annotator(object):
@@ -103,9 +98,9 @@ class Annotator(object):
 
 
     def print_instructions(self):
-        print("----------------------")
+        print("-----------------------------------------------------------------------------")
         print("ANNOTATOR INSTRUCTIONS")
-        print("----------------------")
+        print("-----------------------------------------------------------------------------")
         print("Rotate the view by dragging with LMB held down.")
         print("Pan the view around by holding shift and dragging LMB.")
         print("Zoom in/out with mouse wheel.")
@@ -118,7 +113,10 @@ class Annotator(object):
         print("")
         print("Press C to reset the viewpoint to the mean of the currently selected points,")
         print("  it can be useful to do this when you start annotating a new object.")
-        print("You can skip any objects with class 'DontCare'")
+        print("")
+        print("You can skip any objects with class 'DontCare'.")
+        print("Previously labeled points will be colored red.")
+        print("-----------------------------------------------------------------------------")
         print("")
 
 
