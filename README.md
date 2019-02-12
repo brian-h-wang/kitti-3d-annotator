@@ -25,7 +25,7 @@ PROJECT_ROOT/
         - image_2/
         - label_2/
         - velodyne/
-        - gt_segmentation/  <- The annotator will create this directory
+        - gt_segmentation/  <- The annotator will create this directory. Output segmentations go here.
 ```
 
 To start the annotator, just run
