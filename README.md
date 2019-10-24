@@ -1,10 +1,12 @@
 # KITTI 3D Ground Truth Annotator
 
+![Annotation video](readme_assets/annotator.gif)
+
 This is a tool for creating 3D instance segmentation annotations for the KITTI object detection dataset. The code loads in the KITTI bounding box object annotations and gives points initial labels based on whether they fall within a ground truth bounding box. The user then cleans up the annotations using a point cloud viewer GUI.
 
 The [Point Processing Toolkit](https://github.com/heremaps/pptk) is used for visualization and annotation.
 
-# How to use
+# Installation
 
 Install requirements with pip
 
@@ -28,6 +30,12 @@ PROJECT_ROOT/
         - gt_segmentation/  <- The annotator will create this directory. Output segmentations go here.
 ```
 
+So, if for example you try to annotate frame number 507, the program will look for the Velodyne point cloud at `kitti/data_object/training/velodyne/000507.bin`.
+
+So far, this code has only been run on Mac OS X, however pptk can also be installed on Windows and Linux so it should also be possible to run the annotator on those operating systems.
+
+# Usage
+
 To start the annotator, just run
 
 ```
@@ -35,3 +43,5 @@ python main.py
 ```
 
 Enter the frame number to annotate, and the point cloud viewer will appear. Instructions will appear in the Python terminal window - keep the terminal in view while the point cloud viewer is open. 
+
+Some frames include objects with class 'DontCare' - these can be skipped (just press ENTER).
