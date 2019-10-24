@@ -1,21 +1,12 @@
 from annotator.annotator import Annotator
 import argparse
 
-from skimage.io import imread, imshow
 from pathlib import Path
-import matplotlib.pyplot as plt
 
 if __name__ == "__main__":
     parser = argparse.ArgumentParser()
-    parser.add_argument("-i", "--image_path", help="path to image directory", default=None)
     parser.add_argument("-f", "--order_file", help="path to order file", default=None)
     A = Annotator()
-
-    # image_path = parser['image_path']
-    # if image_path is not None:
-    #     if not Path(image_path).exists():
-    #         print("Image path %s not found" % image_path)
-    #         image_path = None
 
     args = parser.parse_args()
     order_file = args.order_file
@@ -50,19 +41,9 @@ if __name__ == "__main__":
             exit = False
         except ValueError:
             exit = True
-        if args.image_path is not None:
-            fig = plt.figure(figsize=(14,10))
-           #plt.ion()
         while not exit:
             frame_num = order[next_frame]
             print("Annotating frame %d..." % frame_num)
-            if args.image_path is not None:
-                image_path = Path(args.image_path) / ("%06d.png" % frame_num)
-                imshow(imread(image_path))
-                plt.grid(False)
-                plt.pause(0.0001)
-                #plt.draw()
-                #plt.show()
             A.annotate(frame_num)
             user_input = input("Hit ENTER to continue, or enter 'q' to quit.")
             if user_input.startswith("q") or user_input.startswith("Q"):
