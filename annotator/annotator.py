@@ -48,6 +48,12 @@ class Annotator(object):
         self.viewer.set(point_size=0.01)
         self.viewer.set(lookat=[0,0,0])
 
+    def get_initial_labels(self):
+        initial_labels = np.zeros(self.points.shape[0], dtype=int)
+        for (i,object_label) in enumerate(self.bbox_labels):
+            in_object = kitti_utils.check_points_in_box(self.points, self.proj.inverse_transform(object_label.box_corners()))
+            initial_labels[in_object] = i+1
+        return initial_labels
 
     def annotate(self, frame_num):
         self.load_data(frame_num)
@@ -124,5 +130,8 @@ class Annotator(object):
     def close(self):
         self.viewer.close()
         self.viewer = None
+
+
+
 
 
