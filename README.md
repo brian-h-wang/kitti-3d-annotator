@@ -42,6 +42,17 @@ To start the annotator, just run
 python main.py
 ```
 
+
 Enter the frame number to annotate, and the point cloud viewer will appear. Instructions will appear in the Python terminal window - keep the terminal in view while the point cloud viewer is open. 
 
-Some frames include objects with class 'DontCare' - these can be skipped (just press ENTER).
+You can also pass in as input a list of frame numbers to annotate:
+
+```
+python main.py -f order_file.txt
+```
+
+Where order_file is a list of frame numbers (valid frame numbers in the KITTI training set are 0 to 7480) separated by line breaks.
+
+## Notes
+
+* Some frames include objects with class 'DontCare' - these can be skipped (just press ENTER).
